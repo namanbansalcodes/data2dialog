@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>{% block title %}data2dialog{% endblock title %}</title>
+    <link rel="shortcut icon" type="image" href="{% static 'Assets/logo.png' %}"> {% block css %} {% endblock css %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded&display=swap">
+    {% block stylesheet %} {% endblock stylesheet %}
+</head>
+
+<body>
+    <!--  spinner -->
+    <div class="loader loader-hidden"></div>
+    <!--  spinner -->
+
+        {% block content %} {% endblock content %}
+
+
+
+    <footer class="footer bg-dark text-light">
+        <div class="container-fluid p-1">
+            <div class="text-center">
+                <p>&copy; 2023 data2dialog.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+    <!-- Spinner JS -->
+    <script>
+        // This function will show the spinner
+        window.showLoader = function() {
+            const loader = document.querySelector(".loader");
+            loader.classList.remove("loader-hidden");
+        }
+
+        // This function will hide the spinner and then remove it from the DOM after the transition
+        window.hideLoader = function() {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader-hidden");
+
+            loader.addEventListener("transitionend", () => {
+                if (loader.classList.contains("loader-hidden")) {
+                    loader.remove();
+                }
+            });
+        }
+
+        window.addEventListener("load", hideLoader);
+    </script>
+    <!-- Spinner JS -->
+
+    <!-- Google tag (gtag.js) -->
+    <!-- Analytics block ends here-->
+
+</body>

@@ -1,0 +1,11 @@
+body {
+    font-family: 'Unbounded', sans-serif;
+    color: black;
+}
+
+
+.container-fluid{
+    max-width: 5000px;
+}
+
+

@@ -1,0 +1,12 @@
+Django==4.2.2
+django_allauth==0.54.0
+psycopg2
+crispy-bootstrap4
+django-bootstrap4
+sqlalchemy
+boto3
+websockets
+asyncio
+channels==3.0.5
+pandas
+openai

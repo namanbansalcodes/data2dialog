@@ -1,0 +1,67 @@
+{% extends "base.html" %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% load account socialaccount %} 
+
+{% load i18n %} 
+
+{% block title %}Quizzx Signup{% endblock title %} 
+
+{% block css %}<link href="{% static 'accounts/Css/login.css' %}" rel="stylesheet">{% endblock css %} 
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row m-2 p-5">
+
+        <div class="col-lg-4 col-md-6 col-sm-10 m-lg-5">
+
+            <h1>Sign Up</h1>
+            <hr>
+            <form class="container-fluid text-left m-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %} {{ form|crispy }}
+              
+              <br>{% if redirect_field_value %}
+      
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+              
+              <button class="btn btn-primary btn-block" type="submit">{% trans "Sign Up" %}</button>
+              
+              {% get_providers as socialaccount_providers %} 
+              {% for provider in socialaccount_providers %}
+              <a title="{{ provider.name }}" class="btn btn-danger btn-block" style="background-color: #db4437;" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+                <i class="fa fa-google"></i> Log in with {{ provider.name }}</a>
+                {% endfor %}
+          </form>
+      
+          <p class="exist_account_info">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+      
+
+        </div>
+
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-flex justify-content-end">
+                <img class="img-fluid" src="{% static 'Assets/login.png' %}" width="500px">
+            </div>
+        </div>
+
+    </div>
+
+
+    {% if messages %}
+    <div>
+        <ul>
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock content %}

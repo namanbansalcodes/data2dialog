@@ -1,0 +1,23 @@
+label {
+    margin-top: 10px;
+    font-size: large;
+}
+
+.card {
+    margin: 10px;
+    padding: 30px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 500px;
+    border-width: 3px;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        border-radius: 20px;
+        border-width: 2px;
+    }
+    label {
+        font-size: medium;
+    }
+}

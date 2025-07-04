@@ -1,0 +1,140 @@
+a{
+    text-decoration: none;
+}
+
+.landing-page-title {
+    font-size: 100px;
+    font-weight: bolder;
+    display: block;
+}
+
+.landing-page-subtitle {
+    font-size: 30px;
+    color: white;
+    display: block;
+}
+
+.landing-page-top-container{
+    background-color: #FB8B24;
+    display:flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    /* Background Dotted Grid */
+    --dot-size: 1px;
+    --spacing: 40px;
+
+    background-image: 
+        radial-gradient(circle, black var(--dot-size), transparent var(--dot-size)),
+        radial-gradient(circle, black var(--dot-size), transparent var(--dot-size));
+
+    background-size: var(--spacing) var(--spacing);
+    /* Background Dotted Grid */
+
+
+    /* Background Animation*/
+    transition: transform 0.5s ease; /* Add smooth transition for all transform properties */
+}
+
+
+.landing-page-top-container:hover {
+    transform: scale(1.03) translate(5px, 5px); /* Add slight zoom, rotate, and translate on hover */
+}
+
+.landing-page-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White */
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.landing-page-button:hover {
+    background-color: #555; /* Slightly lighter gray on hover */
+}
+
+.black{
+    background-color: black;
+}
+
+
+.landing-page-container{
+    display:flex;
+    margin-top: 5vh;
+    text-align: left;
+}
+
+.landing-page-heading{
+    font-size: min(3vw,45px);
+    display: block;
+    margin-bottom: 3vh;
+    font-weight: bold;
+}
+
+.landing-page-content {
+    font-size: min(1vw,18px);
+    display: block;
+    line-height: 2; 
+    word-spacing: 0.1em; 
+}
+
+.d2-logo-outer{
+    background-color:#FB8B24;
+    text-align: center;
+    border-radius: 50px;
+    position: relative;
+
+}
+
+.bottom-left-image {
+    position: absolute;
+    bottom: max(-5vw,-70px);
+    left: max(-5vw,-70px);    
+    max-width: min(18vw, 250px);
+}
+
+.d2-logo-inner{
+    font-size: min(20vw, 350px);
+    font-weight: bolder;
+    letter-spacing: -20px;
+}
+
+.quote-text{
+    color: #FB8B24;
+    text-align: center;
+    font-size: min(5vw,70px);
+}
+
+
+/* Phone and Smaller Devices*/
+@media (max-width: 768px) { 
+    .landing-page-title {
+        font-size: 40px;
+    }
+
+    .landing-page-subtitle{
+        font-size: 20px;
+    }
+
+    .landing-page-heading{
+        font-size: 25px;
+    }
+
+    .landing-page-content{
+        font-size: 10px;
+    }
+
+    .d2-logo-outer{
+        border-radius: 30px;
+    }
+
+    .d2-logo-inner{
+        font-size: 20vw;
+        letter-spacing: 1px;
+    }
+}

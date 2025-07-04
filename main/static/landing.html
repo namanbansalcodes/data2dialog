@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% load static %} 
+
+{% block title %} Welcome - d2d {% endblock title %} 
+
+
+{% block stylesheet %}  <link href="{% static 'css/landing.css' %}" rel="stylesheet"> {% endblock stylesheet %} 
+
+
+{% block content %} 
+<div class="container-fluid">
+
+    <div class="row landing-page-top-container p-5">
+        <div class="col-12 text-center">
+            <span class="landing-page-title">data2dialog</span>
+            <span class="landing-page-subtitle">TALK WITH YOUR DATA</span><br>
+            <a href="{% url 'main_page' %}" class="landing-page-button">Try Now!</a>
+        </div>
+    </div>
+
+    <div class="row landing-page-container p-5">
+        <div class="col-lg-6">
+            <span class="landing-page-heading">NO CODING. NO SQL.<br>JUST NATURAL LANGUAGE.</span>
+            <span class="landing-page-content">Feel daunted by complex data visualization tools or coding-based data analysis?<br><br>
+                data2dialog is here to simplify. Our platform understands your natural language queries and provides answers from your dataset. 
+                Whether you're a researcher, student, or just someone curious about their data, our platform offers an intuitive way to dive deep into the numbers without getting overwhelmed.</span>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="d2-logo-outer m-3">    
+                <span class="d2-logo-inner">D2</span>
+                <img src="{% static 'Assets/stars.png' %}" class="bottom-left-image">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row landing-page-container black p-5 text-center">
+        <span class="quote-text m-2 m-md-3">Access Data Instantly<br>Bypass the Analysts</span>
+    </div>
+   
+
+    <script src="{% static 'js/landing.js' %}"></script>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

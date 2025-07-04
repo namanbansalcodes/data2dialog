@@ -1,0 +1,93 @@
+{% extends "base.html" %} {% load static %} 
+
+
+{% block title %} data2dialog {% endblock title %} 
+
+
+{% block stylesheet %}  <link href="{% static 'css/main.css' %}" rel="stylesheet"> {% endblock stylesheet %} 
+
+
+{% block content %} 
+
+<div class="container-fluid main-container">
+
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-3 sidebar"> 
+            
+             <!-- Logo -->
+            <div class="m-3">
+                <a class="main-page-logo" href="{% url 'landing_page' %}">data2dialog</a>
+            </div>
+            <!-- Logo -->
+
+
+            <!-- Add Data Button -->
+            <div class="m-3">
+                <!-- Hidden file input -->
+                <input type="file" id="fileInput" style="display: none;" accept="text/csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onchange="handleFileChange(this)">
+                <!-- Add Data Button -->
+                <a onclick="document.getElementById('fileInput').click();" class="add-data-button"> + Add Data</a>
+            </div>
+            <!-- Add Data Button -->
+
+            <!-- Session Documents -->
+            <div class="documents-list">
+                {% if 'documents' in request.session%}
+                    {% for key,value in request.session.documents.items %}
+                        <a data-value={{key}} class="py-2 px-3 my-2 border-bottom document-option">{{ value.filename }}</a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <!-- Session Documents -->
+
+        </div>
+        <!-- Sidebar -->
+
+
+        <!-- Chat-Section -->
+        <div class="col-md-8 col-lg-9 chat-section">
+
+            <div class="chat-messages">
+                <div class="welcome-message">
+                    <h2>Welcome to data2dialog!</h2>
+                    <p style="text-align: center;">Add data or select a file to continue</p>
+                </div>
+                
+                <div class="response-message p-5">
+
+                </div>
+
+            </div>
+            
+
+            <!-- Chat Input -->
+            <div class="chat-input">
+                {% csrf_token %}
+                <input type="text" class="form-control chat-input-field" placeholder="Type your message here...">
+                <button type="button" class="btn chat-submit-button" disabled>Send</button>
+                
+                <div class="clearfix"></div>
+                <!-- Disclaimer -->
+                <span class="chat-disclaimer m-2">May produce incorrect results. Use with caution.</span>
+            </div>
+            <!-- Chat Input -->
+
+        </div>
+        <!-- Chat-Section -->
+
+    </div>
+</div>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+
+
+
+
+
+
+
+
+{% endblock content %}
